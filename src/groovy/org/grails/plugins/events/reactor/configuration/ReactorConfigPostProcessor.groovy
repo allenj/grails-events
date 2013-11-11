@@ -26,7 +26,7 @@ import org.codehaus.groovy.runtime.m12n.ExtensionModuleScanner
 import org.grails.plugins.events.reactor.api.EventsApi
 import org.grails.plugins.events.reactor.promise.ReactorPromiseFactory
 import org.springframework.beans.factory.BeanFactory
-import reactor.spring.beans.factory.config.ConsumerBeanAutoConfiguration as C
+import reactor.spring.factory.config.ConsumerBeanAutoConfiguration as C
 import org.springframework.beans.BeansException
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory
