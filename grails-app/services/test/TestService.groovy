@@ -23,7 +23,6 @@ import reactor.spring.annotation.SelectorType
 /**
  * @author Stephane Maldini
  */
-@CompileStatic
 class TestService {
 
 	@Selector

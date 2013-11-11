@@ -129,7 +129,6 @@ class ReactorTransformer extends AbstractGrailsArtefactTransformer implements AS
 
 	@Override
 	protected void addDelegateInstanceMethod(ClassNode classNode, Expression delegate, MethodNode declaredMethod, AnnotationNode markerAnnotation, Map<String, ClassNode> genericsPlaceholders) {
-		GrailsASTUtils.addDelegateInstanceMethod(classNode, delegate, declaredMethod, getMarkerAnnotation(), false,
-				genericsPlaceholders);
+		GrailsASTUtils.addDelegateInstanceMethod(classNode, delegate, declaredMethod, getMarkerAnnotation(), false)
 	}
 }

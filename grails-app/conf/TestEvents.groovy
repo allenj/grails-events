@@ -27,7 +27,7 @@ doWithReactor = {
 	}
 	reactor('someGormReactor'){
 		dispatcher = new SynchronousDispatcher()
-		ext 'gorm', true
+		//ext 'gorm', true
 
 		stream{
 			consume{
