@@ -35,6 +35,11 @@ class TestController {
 		render ' on test '
 	}
 
+	def anotherTest(){
+		instanceEventsApi.event(for:'someGormReactor', key:'test')
+		render 'ok'
+	}
+
 	def test() {
 		instanceEventsApi.event('test', 1) {
 			log.info 'eventCallback: ' + it

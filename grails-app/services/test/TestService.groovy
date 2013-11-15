@@ -31,9 +31,8 @@ class TestService {
 	}
 
 	@Selector(reactor = 'someGormReactor')
-	@ReplyTo
-	boolean beforeValidate(Book b){
-		false
+	boolean test(){
+		log.info 'testMe'
 	}
 
 	@Selector ('test')

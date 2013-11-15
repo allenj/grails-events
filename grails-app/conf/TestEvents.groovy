@@ -32,8 +32,6 @@ doWithReactor = {
 		stream{
 			consume{
 				log.info "Some gorm event is flowing with data $it.data"
-			}.when(Throwable){
-				log.error "Ow snap!", it
 			}
 		}
 	}
