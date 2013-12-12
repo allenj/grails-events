@@ -3,7 +3,7 @@ grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 grails.servlet.version = "3.0"
 grails.tomcat.nio = true
-grails.project.repos.default = 'grailsRepoSnapshot'
+grails.project.repos.default = 'grailsRepo'
 
 
 grails.project.fork = [
