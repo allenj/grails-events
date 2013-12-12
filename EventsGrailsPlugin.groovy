@@ -24,7 +24,7 @@ import org.grails.plugins.events.reactor.gorm.GormReactorBridge
 import org.springframework.context.ApplicationContext
 
 class EventsGrailsPlugin {
-	def version = "1.0.0.BUILD-SNAPSHOT"
+	def version = "1.0.0.M1"
 	def grailsVersion = "2.2 > *"
 
 	def pluginExcludes = [
