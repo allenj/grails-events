@@ -18,7 +18,7 @@ package org.grails.plugins.events.reactor.promise
 import grails.async.Promise
 import groovy.transform.CompileStatic
 import reactor.core.Environment
-import reactor.core.composable.Promise as P
+import reactor.rx.Promise as P
 
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException

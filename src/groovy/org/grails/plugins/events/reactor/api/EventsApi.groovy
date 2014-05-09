@@ -18,9 +18,6 @@ package org.grails.plugins.events.reactor.api
 import groovy.transform.CompileStatic
 import org.apache.log4j.Logger
 import reactor.core.Reactor
-import reactor.core.composable.Deferred
-import reactor.core.composable.Stream
-import reactor.core.composable.spec.Streams
 import reactor.event.Event
 import reactor.event.registry.Registration
 import reactor.event.selector.Selector
@@ -29,8 +26,12 @@ import reactor.function.Consumer
 import reactor.groovy.config.GroovyEnvironment
 import reactor.groovy.support.ClosureConsumer
 import reactor.groovy.support.ClosureEventConsumer
+import reactor.rx.Deferred
+import reactor.rx.Stream
+import reactor.rx.spec.Streams
 
 import java.lang.reflect.UndeclaredThrowableException
+
 /**
  * @author Stephane Maldini
  */
@@ -48,7 +49,7 @@ class EventsApi {
 		name ? groovyEnvironment[name] : appReactor
 	}
 
-	Stream<?> withStream(Deferred<?, Stream<?>> s,
+	Stream<?> withStream(Stream<?> s,
 	                     @DelegatesTo(strategy = Closure.DELEGATE_FIRST, value = WithStream) Closure c) {
 		newStream(s, c)
 		s.compose()
@@ -58,7 +59,7 @@ class EventsApi {
 			value = WithStream) Closure c) {
 
 		def deferred = Streams.<?> defer().env(groovyEnvironment.environment()).get()
-		def stream = deferred.compose()
+		def stream = deferred
 
 		newStream(deferred, c)
 		stream
@@ -164,7 +165,7 @@ class EventsApi {
 	private class WithStream extends EventsApi {
 		final Deferred deferred
 
-		WithStream(Deferred<?, Stream<?>> deferred) {
+		WithStream(Stream<?> deferred) {
 			this.deferred = deferred
 		}
 
@@ -176,9 +177,9 @@ class EventsApi {
 					@Override
 					void accept(throwable) {
 						if(UndeclaredThrowableException.class.isAssignableFrom(throwable.class)){
-							deferred.accept(((UndeclaredThrowableException)throwable).cause)
+							deferred.broadcastNext(((UndeclaredThrowableException)throwable).cause)
 						}else{
-							deferred.accept((Throwable)throwable)
+							deferred.broadcastNext((Throwable)throwable)
 						}
 					}
 				}

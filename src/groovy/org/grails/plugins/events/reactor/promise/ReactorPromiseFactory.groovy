@@ -20,7 +20,7 @@ import grails.async.PromiseList
 import groovy.transform.CompileStatic
 import org.grails.async.factory.AbstractPromiseFactory
 import reactor.core.Environment
-import reactor.core.composable.spec.Promises
+import reactor.rx.spec.Promises
 
 import java.util.concurrent.TimeUnit
 
