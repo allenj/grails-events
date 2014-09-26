@@ -28,7 +28,7 @@ import reactor.groovy.support.ClosureConsumer
 import reactor.groovy.support.ClosureEventConsumer
 import reactor.rx.Deferred
 import reactor.rx.Stream
-import reactor.rx.spec.Streams
+import reactor.rx.Streams
 
 import java.lang.reflect.UndeclaredThrowableException
 
