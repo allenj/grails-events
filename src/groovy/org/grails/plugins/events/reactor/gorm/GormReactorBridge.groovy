@@ -6,9 +6,9 @@ import org.grails.plugins.events.reactor.api.EventsApi
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationEvent
 import org.springframework.context.ApplicationListener
-import reactor.core.Reactor
 
 import javax.annotation.PostConstruct
+
 /**
  * @author Stephane Maldini
  */

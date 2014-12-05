@@ -20,23 +20,21 @@ import groovy.transform.CompileStatic
 import org.apache.log4j.Logger
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.commons.GrailsClass
-import org.codehaus.groovy.grails.commons.ServiceArtefactHandler
 import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.reflection.CachedClass
 import org.codehaus.groovy.runtime.m12n.ExtensionModuleScanner
+import org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl
 import org.grails.plugins.events.reactor.api.EventsApi
 import org.grails.plugins.events.reactor.promise.ReactorPromiseFactory
-import org.springframework.beans.factory.BeanFactory
-import reactor.spring.factory.config.ConsumerBeanAutoConfiguration as C
 import org.springframework.beans.BeansException
+import org.springframework.beans.factory.BeanFactory
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory
 import org.springframework.core.Ordered
-import reactor.core.Reactor
 import reactor.groovy.config.GroovyEnvironment
+import reactor.spring.factory.config.ConsumerBeanAutoConfiguration as C
 
 import java.lang.reflect.Method
-import org.codehaus.groovy.reflection.CachedClass
-import org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl
 
 /**
  * @author Stephane Maldini

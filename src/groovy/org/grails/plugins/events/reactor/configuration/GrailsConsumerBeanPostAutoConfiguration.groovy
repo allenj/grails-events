@@ -3,13 +3,13 @@ package org.grails.plugins.events.reactor.configuration
 import groovy.transform.CompileStatic
 import org.grails.plugins.events.reactor.api.EventsApi
 import org.springframework.core.annotation.AnnotationUtils
-import reactor.core.Reactor
 import reactor.function.Consumer
 import reactor.spring.annotation.ReplyTo
 import reactor.spring.annotation.Selector
 import reactor.spring.factory.config.ConsumerBeanAutoConfiguration
 
 import java.lang.reflect.Method
+
 /**
  * @author Stephane Maldini
  */

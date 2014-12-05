@@ -17,8 +17,8 @@ package org.grails.plugins.events.reactor.api
 
 import groovy.transform.CompileStatic
 import org.apache.log4j.Logger
-import reactor.core.Reactor
 import reactor.event.Event
+import reactor.event.EventBus
 import reactor.event.registry.Registration
 import reactor.event.selector.Selector
 import reactor.event.selector.Selectors
@@ -40,13 +40,13 @@ class EventsApi {
 
 	private static final log = Logger.getLogger(EventsApi)
 
-	static final String GRAILS_REACTOR = 'grailsReactor'
+	static final String GRAILS_REACTOR = 'grailsEventBus'
 
 	GroovyEnvironment groovyEnvironment
-	Reactor appReactor
+	EventBus appEventBus
 
-	Reactor reactor(String name = null){
-		name ? groovyEnvironment[name] : appReactor
+	EventBus reactor(String name = null){
+		name ? groovyEnvironment[name] : appEventBus
 	}
 
 	Stream<?> withStream(Stream<?> s,
@@ -104,7 +104,7 @@ class EventsApi {
 		final Event ev = data && Event.class.isAssignableFrom(data?.class) ? (Event) data :
 				new Event(params ? new Event.Headers(params) : null, data, errorConsumer)
 
-		final reactor = ns ? groovyEnvironment[ns] : appReactor
+		final reactor = ns ? groovyEnvironment[ns] : appEventBus
 
 		if (deferred) {
 			final replyTo = Selectors.$()
@@ -125,7 +125,7 @@ class EventsApi {
 
 	Registration<Consumer> on(key, @DelegatesTo(strategy = Closure.DELEGATE_FIRST,
 			value = ClosureEventConsumer.ReplyDecorator) Closure callback) {
-		_on(appReactor, key, callback)
+		_on(appEventBus, key, callback)
 	}
 
 	Registration<Consumer> on(String namespace, key, @DelegatesTo(strategy = Closure.DELEGATE_FIRST,
@@ -133,7 +133,7 @@ class EventsApi {
 		_on(groovyEnvironment[namespace], key, callback)
 	}
 
-	private Registration<Consumer> _on(Reactor reactor, key, Closure callback) {
+	private Registration<Consumer> _on(EventBus reactor, key, Closure callback) {
 		if (key instanceof Selector)
 			reactor.on key, callback
 		else if (key instanceof Class)
@@ -144,17 +144,17 @@ class EventsApi {
 
 
 	boolean removeConsumers(String ns = null, key) {
-		(ns ? groovyEnvironment[ns] : appReactor).consumerRegistry.unregister(key)
+		(ns ? groovyEnvironment[ns] : appEventBus).consumerRegistry.unregister(key)
 	}
 
 	int countConsumers(String ns = null, key) {
-		(ns ? groovyEnvironment[ns] : appReactor).consumerRegistry.select(key).size()
+		(ns ? groovyEnvironment[ns] : appEventBus).consumerRegistry.select(key).size()
 	}
 
 
 	private WithStream newStream(Deferred d, Closure c) {
 		def withStream = new WithStream(d)
-		withStream.appReactor = appReactor
+		withStream.appEventBus = appEventBus
 		withStream.groovyEnvironment = groovyEnvironment
 		c.delegate = withStream
 		c.resolveStrategy = Closure.DELEGATE_FIRST
