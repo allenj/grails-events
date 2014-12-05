@@ -15,7 +15,7 @@
  */
 
 import org.grails.plugins.events.reactor.api.EventsApi
-import reactor.event.dispatch.SynchronousDispatcher
+import reactor.core.dispatch.SynchronousDispatcher
 
 includes = ['default']
 
