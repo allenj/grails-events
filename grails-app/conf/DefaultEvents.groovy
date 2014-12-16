@@ -16,7 +16,7 @@
 
 import org.grails.plugins.events.reactor.api.EventsApi
 import org.grails.plugins.events.reactor.promise.ReactorPromise
-import reactor.core.configuration.DispatcherType
+import reactor.core.config.DispatcherType
 
 doWithReactor = {
 	environment {
