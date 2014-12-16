@@ -27,7 +27,7 @@ class GrailsConsumerBeanPostAutoConfiguration extends ConsumerBeanAutoConfigurat
 		Consumer consumer
 		Reactor reactor
 		Selector selectorAnno
-		reactor.event.selector.Selector selector
+		reactor.bus.selector.Selector selector
 
 		for (final Method method : methods) {
 			//scanAnnotation method

@@ -88,7 +88,7 @@ class TestController {
 Grails Events let you use Spring Beans as Reactor Consumers. There is especically support for Service artefacts as they will support hot reloading.
 ```groovy
 import groovy.transform.CompileStatic
-import reactor.events.Event
+import reactor.bus.Event
 import reactor.spring.annotation.ReplyTo
 import reactor.spring.annotation.Selector
 import reactor.spring.annotation.SelectorType

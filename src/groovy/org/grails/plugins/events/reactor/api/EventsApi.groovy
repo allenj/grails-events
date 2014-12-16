@@ -17,11 +17,11 @@ package org.grails.plugins.events.reactor.api
 
 import groovy.transform.CompileStatic
 import org.apache.log4j.Logger
-import reactor.event.Event
-import reactor.event.EventBus
-import reactor.event.registry.Registration
-import reactor.event.selector.Selector
-import reactor.event.selector.Selectors
+import reactor.bus.Event
+import reactor.bus.EventBus
+import reactor.bus.registry.Registration
+import reactor.bus.selector.Selector
+import reactor.bus.selector.Selectors
 import reactor.fn.Consumer
 import reactor.groovy.config.GroovyEnvironment
 import reactor.groovy.support.ClosureConsumer
