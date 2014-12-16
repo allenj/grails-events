@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2013 GoPivotal, Inc. All Rights Reserved.
+ * Copyright (c) 2011-2015 Pivotal Software Inc., Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
+
 import org.codehaus.groovy.grails.commons.GrailsClass
 import org.codehaus.groovy.grails.commons.ServiceArtefactHandler
 import org.grails.plugins.events.reactor.api.EventsApi
-import org.grails.plugins.events.reactor.configuration.GrailsConsumerBeanPostAutoConfiguration
 import org.grails.plugins.events.reactor.configuration.EventsArtefactHandler
+import org.grails.plugins.events.reactor.configuration.GrailsConsumerBeanPostAutoConfiguration
 import org.grails.plugins.events.reactor.configuration.ReactorConfigPostProcessor
 import org.grails.plugins.events.reactor.gorm.GormReactorBridge
-import org.springframework.context.ApplicationContext
 
 class EventsGrailsPlugin {
 	def version = "1.0.0.M1"

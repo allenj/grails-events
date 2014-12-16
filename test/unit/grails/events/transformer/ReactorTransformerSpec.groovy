@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2013 GoPivotal, Inc. All Rights Reserved.
+ * Copyright (c) 2011-2015 Pivotal Software Inc., Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,18 +15,14 @@
  */
 package grails.events.transformer
 
-import grails.util.BuildSettings
 import grails.util.GrailsWebUtil
-import grails.web.Action
-
 import org.codehaus.groovy.grails.commons.spring.GrailsWebApplicationContext
 import org.codehaus.groovy.grails.compiler.injection.ClassInjector
 import org.codehaus.groovy.grails.compiler.injection.GrailsAwareClassLoader
 import org.codehaus.groovy.grails.compiler.reactor.ReactorTransformer
 import org.springframework.web.context.WebApplicationContext
-import org.springframework.web.context.request.RequestContextHolder
-
 import spock.lang.Specification
+
 /**
  * @author Stephane Maldini
  */

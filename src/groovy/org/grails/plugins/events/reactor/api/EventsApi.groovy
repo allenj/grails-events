@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2013 GoPivotal, Inc. All Rights Reserved.
+ * Copyright (c) 2011-2015 Pivotal Software Inc., Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import reactor.event.EventBus
 import reactor.event.registry.Registration
 import reactor.event.selector.Selector
 import reactor.event.selector.Selectors
-import reactor.function.Consumer
+import reactor.fn.Consumer
 import reactor.groovy.config.GroovyEnvironment
 import reactor.groovy.support.ClosureConsumer
 import reactor.groovy.support.ClosureEventConsumer
